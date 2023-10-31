@@ -8,22 +8,42 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <Folder Include="Interactivity\" />
       <Folder Include="Pages\" />
+      <Folder Include="Resources\Style\" />
       <Folder Include="Services\" />
-      <Folder Include="ViewModels\" />
+      <Folder Include="ViewModel\" />
     </ItemGroup>
 
     <ItemGroup>
-      <Page Update="MainWindow.xaml">
-        <Generator>MSBuild:Compile</Generator>
-        <XamlRuntime>Wpf</XamlRuntime>
-        <SubType>Designer</SubType>
-      </Page>
       <Page Update="Resources\Basic\SizesResourcer.xaml">
         <Generator>MSBuild:Compile</Generator>
         <XamlRuntime>Wpf</XamlRuntime>
         <SubType>Designer</SubType>
       </Page>
+      <Page Update="Views\MainPage\FunctionalZone.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <XamlRuntime>Wpf</XamlRuntime>
+        <SubType>Designer</SubType>
+      </Page>
+      <Page Update="Views\MainPage\ToolStrip.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <XamlRuntime>Wpf</XamlRuntime>
+        <SubType>Designer</SubType>
+      </Page>
+      <Page Update="Views\MainPage\MainWindow.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <XamlRuntime>Wpf</XamlRuntime>
+        <SubType>Designer</SubType>
+      </Page>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Resource Include="Resources\Icon\MainWindow.ico" />
+      <Resource Include="Resources\Icon\WithRegardTo.ico" />
+      <None Remove="Resources\Icon\WithRegardTo.ico" />
+      <Resource Include="Resources\Icon\WithRegardTo.ico" />
+      <None Remove="Resources\Icon\MainWindow.ico" />
     </ItemGroup>
 
 </Project>

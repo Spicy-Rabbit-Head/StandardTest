@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace StandardTest.Views;
+namespace StandardTest.Views.MainPage;
 
 public partial class ToolStrip : UserControl
 {

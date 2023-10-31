@@ -1,38 +1,42 @@
-﻿<UserControl x:Class="StandardTest.Views.ToolStrip"
+﻿<UserControl x:Class="StandardTest.Views.MainPage.ToolStrip"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:local="clr-namespace:StandardTest.Views"
+             xmlns:local="clr-namespace:StandardTest.Views.MainPage"
+             xmlns:wrt="clr-namespace:StandardTest.Views.WithRegardTo"
              xmlns:controls="clr-namespace:StandardTest.Controls"
              mc:Ignorable="d">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <!-- 引入客户按钮模板 -->
                 <ResourceDictionary Source="/Resources/ControlTemplate/Button/CustomerButton.xaml"></ResourceDictionary>
-                <ResourceDictionary Source="/Resources/ControlTemplate/Style/PoptipStyle.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/Resources/ControlTemplate/Poptip/Poptip.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="/Resources/Icon/Icons.xaml"></ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
+    <!-- 客户按钮 -->
     <Border BorderBrush="#c9d6df" BorderThickness="0 0 0 2">
         <StackPanel Orientation="Horizontal" Height="30">
-            <!-- 客户按钮 -->
-            <Button Style="{StaticResource CustomerButtonTemplate}">
+            <!-- 设置界面按钮 -->
+            <controls:CustomerButton Style="{StaticResource CustomerButtonTemplate}"
+                                     ModalWindow="{x:Type wrt:WithRegardToWindow}">
                 <Path Width="24" Height="24" Data="{StaticResource Disposition}" Fill="Black" Stretch="Fill"></Path>
                 <controls:Poptip.Instance>
                     <controls:Poptip Style="{StaticResource PoptipStyle}" Content="配置" PlacementType="BOTTOM">
                     </controls:Poptip>
                 </controls:Poptip.Instance>
-            </Button>
-            <Button Style="{StaticResource CustomerButtonTemplate}">
+            </controls:CustomerButton>
+            <!-- 关于界面按钮 -->
+            <controls:CustomerButton Style="{StaticResource CustomerButtonTemplate}"
+                                     ModalWindow="{x:Type wrt:WithRegardToWindow}">
                 <Path Width="24" Height="24" Data="{StaticResource Help}" Fill="Black" Stretch="Fill"></Path>
                 <controls:Poptip.Instance>
                     <controls:Poptip Style="{StaticResource PoptipStyle}" Content="关于" PlacementType="BOTTOM">
                     </controls:Poptip>
                 </controls:Poptip.Instance>
-            </Button>
+            </controls:CustomerButton>
         </StackPanel>
     </Border>
 </UserControl>
