@@ -4,9 +4,35 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:StandardTest.Views"
-             mc:Ignorable="d"
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-        
-    </Grid>
+             xmlns:controls="clr-namespace:StandardTest.Controls"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- 引入客户按钮模板 -->
+                <ResourceDictionary Source="/Resources/ControlTemplate/Button/CustomerButton.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/Resources/ControlTemplate/Style/PoptipStyle.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/Resources/Icon/Icons.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Border BorderBrush="#c9d6df" BorderThickness="0 0 0 2">
+        <StackPanel Orientation="Horizontal" Height="30">
+            <!-- 客户按钮 -->
+            <Button Style="{StaticResource CustomerButtonTemplate}">
+                <Path Width="24" Height="24" Data="{StaticResource Disposition}" Fill="Black" Stretch="Fill"></Path>
+                <controls:Poptip.Instance>
+                    <controls:Poptip Style="{StaticResource PoptipStyle}" Content="配置" PlacementType="BOTTOM">
+                    </controls:Poptip>
+                </controls:Poptip.Instance>
+            </Button>
+            <Button Style="{StaticResource CustomerButtonTemplate}">
+                <Path Width="24" Height="24" Data="{StaticResource Help}" Fill="Black" Stretch="Fill"></Path>
+                <controls:Poptip.Instance>
+                    <controls:Poptip Style="{StaticResource PoptipStyle}" Content="关于" PlacementType="BOTTOM">
+                    </controls:Poptip>
+                </controls:Poptip.Instance>
+            </Button>
+        </StackPanel>
+    </Border>
 </UserControl>

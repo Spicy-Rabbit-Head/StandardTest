@@ -2,12 +2,16 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:StandardTest.Controls">
     <Style x:Key="PoptipStyle" TargetType="controls:Poptip">
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="HorizontalOffset" Value="-45"></Setter>
+        <Setter Property="VerticalOffset" Value="5"></Setter>
         <Setter Property="IsHitTestVisible" Value="False" />
-        <Setter Property="HorizontalAlignment" Value="Left" />
-        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="Background" Value="{DynamicResource RegionBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
+        <Setter Property="Background" Value="#EEEEEE" />
+        <Setter Property="BorderBrush" Value="#E0E0E0" />
+        <Setter Property="Delay" Value="100"></Setter>
         <Setter Property="controls:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
         <Setter Property="Padding" Value="{StaticResource DefaultControlPadding}" />
         <Setter Property="Template">

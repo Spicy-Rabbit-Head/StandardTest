@@ -2,5 +2,8 @@
 
 public enum HitMode
 {
-    
+    CLICK,
+    HOVER,
+    FOCUS,
+    NONE
 }

@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace StandardTest.Views
+namespace StandardTest
 {
     /// <summary>
     /// MainWindow.xaml 的交互逻辑
