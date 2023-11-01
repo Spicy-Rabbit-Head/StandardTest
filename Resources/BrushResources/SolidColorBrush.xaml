@@ -1,6 +1,6 @@
-﻿<!-- 定义专用的文件夹结构 存放资源 -->
-<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!-- 笔刷资源 -->
     <SolidColorBrush x:Key="PresetColor1" Color="Wheat"></SolidColorBrush>
     <SolidColorBrush x:Key="PresetColor2" Color="Sienna"></SolidColorBrush>
 </ResourceDictionary>

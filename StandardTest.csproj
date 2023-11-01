@@ -8,11 +8,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Interactivity\" />
-      <Folder Include="Pages\" />
       <Folder Include="Resources\Style\" />
       <Folder Include="Services\" />
-      <Folder Include="ViewModel\" />
     </ItemGroup>
 
     <ItemGroup>
@@ -39,8 +36,12 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Resource Include="Resources\Icon\MainWindow.ico" />
-      <Resource Include="Resources\Icon\WithRegardTo.ico" />
+      <Resource Include="Resources\Icon\MainWindow.ico">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Resource>
+      <Resource Include="Resources\Icon\WithRegardTo.ico">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Resource>
       <None Remove="Resources\Icon\WithRegardTo.ico" />
       <Resource Include="Resources\Icon\WithRegardTo.ico" />
       <None Remove="Resources\Icon\MainWindow.ico" />

@@ -3,7 +3,6 @@
                     xmlns:controls="clr-namespace:StandardTest.Controls">
     <Style x:Key="PoptipStyle" TargetType="controls:Poptip">
         <Setter Property="Foreground" Value="Black" />
-        <Setter Property="HorizontalOffset" Value="-45"></Setter>
         <Setter Property="VerticalOffset" Value="5"></Setter>
         <Setter Property="IsHitTestVisible" Value="False" />
         <Setter Property="HorizontalAlignment" Value="Center" />

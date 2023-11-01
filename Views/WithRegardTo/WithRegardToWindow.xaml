@@ -9,7 +9,29 @@
         WindowStartupLocation="CenterOwner"
         Icon="/Resources/Icon/WithRegardTo.ico"
         Title="关于" Height="200" Width="200">
+    <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
-
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0">标品量测程式</Label>
+        <Label Grid.Row="1">版本号 : V1.0</Label>
+        <Label Grid.Row="2">最后构建时间 : 2023.10.31</Label>
+        <Label Grid.Row="3">版权所有 : 赵子奎</Label>
+        <Label Grid.Row="4">开源代码地址 :</Label>
+        <TextBlock Grid.Row="5" TextWrapping="Wrap" Margin="2,1" HorizontalAlignment="Center">
+            <Hyperlink RequestNavigate="JumpToGitHub" NavigateUri="https://github.com/Spicy-Rabbit-Head/StandardTest">
+                点击跳转GitHub
+            </Hyperlink>
+        </TextBlock>
     </Grid>
 </Window>

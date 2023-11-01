@@ -24,7 +24,7 @@
                                      ModalWindow="{x:Type wrt:WithRegardToWindow}">
                 <Path Width="24" Height="24" Data="{StaticResource Disposition}" Fill="Black" Stretch="Fill"></Path>
                 <controls:Poptip.Instance>
-                    <controls:Poptip Style="{StaticResource PoptipStyle}" Content="配置" PlacementType="BOTTOM">
+                    <controls:Poptip Style="{StaticResource PoptipStyle}" Content="配置" PlacementType="BOTTOM" HorizontalOffset="-45">
                     </controls:Poptip>
                 </controls:Poptip.Instance>
             </controls:CustomerButton>
@@ -33,7 +33,7 @@
                                      ModalWindow="{x:Type wrt:WithRegardToWindow}">
                 <Path Width="24" Height="24" Data="{StaticResource Help}" Fill="Black" Stretch="Fill"></Path>
                 <controls:Poptip.Instance>
-                    <controls:Poptip Style="{StaticResource PoptipStyle}" Content="关于" PlacementType="BOTTOM">
+                    <controls:Poptip Style="{StaticResource PoptipStyle}" Content="关于" PlacementType="BOTTOM" HorizontalOffset="-45">
                     </controls:Poptip>
                 </controls:Poptip.Instance>
             </controls:CustomerButton>

@@ -14,13 +14,22 @@ namespace StandardTest.Views.MainPage
             InitializeComponent();
         }
 
+        /// <summary>
+        /// 主窗口关闭时询问是否退出
+        /// </summary>
+        /// <param name="e">取消事件参数</param>
         protected override void OnClosing(CancelEventArgs e)
         {
             Console.WriteLine("关闭窗口");
-            base.OnClosing(e);
+            var result = MessageBox.Show("确定是退出吗？", "询问", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            e.Cancel = result != MessageBoxResult.Yes;
         }
 
-        protected override void OnClosed(System.EventArgs e)
+        /// <summary>
+        /// 主窗口关闭后关闭程序
+        /// </summary>
+        /// <param name="e">事件参数</param>
+        protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
             Console.WriteLine("关闭程序");

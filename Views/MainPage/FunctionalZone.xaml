@@ -10,105 +10,103 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Resources/ControlTemplate/TextBox/TextBoxTemplate.xaml"></ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
-            <Style x:Key="ButtonStyle" TargetType="Button">
+            <Style TargetType="Button">
                 <Setter Property="Margin" Value="4"></Setter>
                 <Setter Property="FontSize" Value="20"></Setter>
             </Style>
         </ResourceDictionary>
     </UserControl.Resources>
-    <Grid ShowGridLines="True">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <Border Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <Label>IP地址:</Label>
-                    <TextBox x:Name="IpShow" Width="120" Height="24" IsEnabled="False"
-                             Style="{StaticResource SimplenessTextBox}">
-                    </TextBox>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,4,0,0">
-                    <Label>端口号:</Label>
-                    <TextBox x:Name="PortNumberShow" Width="120" Height="24" IsEnabled="False"
-                             Style="{StaticResource SimplenessTextBox}">
-                    </TextBox>
-                </StackPanel>
-            </StackPanel>
-        </Border>
-        <Grid Grid.Column="1">
+    <Border BorderBrush="#c9d6df" BorderThickness="0 0 0 2">
+        <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
+                <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
-            </Grid.RowDefinitions>
+            <Border Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>IP地址:</Label>
+                        <TextBox x:Name="IpShow" Width="120" Height="24" IsEnabled="False"
+                                 Style="{StaticResource SimplenessTextBox}">
+                        </TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,4,0,0">
+                        <Label>端口号:</Label>
+                        <TextBox x:Name="PortNumberShow" Width="120" Height="24" IsEnabled="False"
+                                 Style="{StaticResource SimplenessTextBox}">
+                        </TextBox>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+            <Border Grid.Column="1" BorderBrush="#c9d6df" BorderThickness="2 0 ">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
 
-            <Button
-                x:Name="RunButton"
-                Grid.Row="0"
-                Grid.Column="0"
-                Background="Chartreuse"
-                Style="{StaticResource ButtonStyle}"
-                Click="Run">
-                运行
-            </Button>
-            <Button
-                x:Name="PauseButton"
-                Grid.Row="0"
-                Grid.Column="1"
-                Background="SandyBrown"
-                IsEnabled="False"
-                Style="{StaticResource ButtonStyle}"
-                Click="Pause">
-                暂停
-            </Button>
-            <Button
-                x:Name="ResumeButton"
-                Grid.Row="1"
-                Grid.Column="0"
-                Background="Tan"
-                IsEnabled="False"
-                Style="{StaticResource ButtonStyle}"
-                Click="Resume">
-                继续
-            </Button>
-            <Button
-                x:Name="StopButton"
-                Grid.Row="1"
-                Grid.Column="1"
-                IsEnabled="False"
-                Background="OrangeRed"
-                Style="{StaticResource ButtonStyle}"
-                Click="Stop">
-                停止
-            </Button>
+                    <Button
+                        x:Name="RunButton"
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Background="Chartreuse"
+                        Click="Run">
+                        运行
+                    </Button>
+                    <Button
+                        x:Name="PauseButton"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Background="SandyBrown"
+                        IsEnabled="False"
+                        Click="Pause">
+                        暂停
+                    </Button>
+                    <Button
+                        x:Name="ResumeButton"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Background="Tan"
+                        IsEnabled="False"
+                        Click="Resume">
+                        继续
+                    </Button>
+                    <Button
+                        x:Name="StopButton"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        IsEnabled="False"
+                        Background="OrangeRed"
+                        Click="Stop">
+                        停止
+                    </Button>
+                </Grid>
+            </Border>
+            <Border Grid.Column="2">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Button
+                        x:Name="OriginButton"
+                        Grid.Row="0"
+                        Background="Goldenrod">
+                        恢复原点
+                    </Button>
+                    <Button
+                        x:Name="ClearButton"
+                        Grid.Row="1"
+                        Background="Salmon">
+                        清除数据
+                    </Button>
+                </Grid>
+            </Border>
         </Grid>
-        <Border Grid.Column="2">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
-                <Button
-                    x:Name="OriginButton"
-                    Grid.Row="0"
-                    Background="Goldenrod"
-                    Style="{StaticResource ButtonStyle}">
-                    恢复原点
-                </Button>
-                <Button
-                    x:Name="ClearButton"
-                    Grid.Row="1"
-                    Background="Salmon"
-                    Style="{StaticResource ButtonStyle}">
-                    清除数据
-                </Button>
-            </Grid>
-        </Border>
-    </Grid>
+    </Border>
 </UserControl>

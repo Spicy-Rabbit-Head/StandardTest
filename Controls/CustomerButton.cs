@@ -4,11 +4,19 @@ using System.Windows.Controls;
 
 namespace StandardTest.Controls;
 
+/// <summary>
+/// 客户区按钮
+/// </summary>
 public class CustomerButton : Button
 {
+    /// <summary>
+    /// 模态窗口类型
+    /// </summary>
     public Type? ModalWindow { get; set; }
 
-    // 创建激发事件
+    /// <summary>
+    /// 重写OnClick方法
+    /// </summary>
     protected override void OnClick()
     {
         // 调用父类的OnClick方法

@@ -1,5 +1,8 @@
 ﻿namespace StandardTest.Data.Enum;
 
+/// <summary>
+/// 放置位置
+/// </summary>
 public enum PlacementType
 {
     /// <summary>
