@@ -7,6 +7,11 @@
         <UseWPF>true</UseWPF>
     </PropertyGroup>
 
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <PlatformTarget>x86</PlatformTarget>
+      <Prefer32bit>true</Prefer32bit>
+    </PropertyGroup>
+
     <ItemGroup>
       <Folder Include="Resources\Style\" />
       <Folder Include="Services\" />
@@ -36,6 +41,9 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Resource Include="Resources\Icon\Disposition.ico">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Resource>
       <Resource Include="Resources\Icon\MainWindow.ico">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Resource>
@@ -45,6 +53,17 @@
       <None Remove="Resources\Icon\WithRegardTo.ico" />
       <Resource Include="Resources\Icon\WithRegardTo.ico" />
       <None Remove="Resources\Icon\MainWindow.ico" />
+      <None Remove="Resources\Icon\Disposition.ico" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="ini-parser" Version="2.5.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="ModbusTcp">
+        <HintPath>..\ModbusTcp\bin\Debug\net6.0\ModbusTcp.dll</HintPath>
+      </Reference>
     </ItemGroup>
 
 </Project>

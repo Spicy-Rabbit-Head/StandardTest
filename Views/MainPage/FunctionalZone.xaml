@@ -4,6 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:StandardTest.Views"
+             xmlns:vm="clr-namespace:StandardTest.ViewModel"
+             d:DataContext="{d:DesignInstance {x:Type vm:MainViewModel} }"
              mc:Ignorable="d">
     <UserControl.Resources>
         <ResourceDictionary>
@@ -13,6 +15,11 @@
             <Style TargetType="Button">
                 <Setter Property="Margin" Value="4"></Setter>
                 <Setter Property="FontSize" Value="20"></Setter>
+            </Style>
+            <Style TargetType="TextBox" BasedOn="{StaticResource SimplenessTextBox}">
+                <Setter Property="Width" Value="120"></Setter>
+                <Setter Property="Height" Value="24"></Setter>
+                <Setter Property="IsEnabled" Value="False"></Setter>
             </Style>
         </ResourceDictionary>
     </UserControl.Resources>
@@ -27,14 +34,12 @@
                 <StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Label>IP地址:</Label>
-                        <TextBox x:Name="IpShow" Width="120" Height="24" IsEnabled="False"
-                                 Style="{StaticResource SimplenessTextBox}">
+                        <TextBox Text="{Binding ConnectionProperties.IpText}">
                         </TextBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,4,0,0">
                         <Label>端口号:</Label>
-                        <TextBox x:Name="PortNumberShow" Width="120" Height="24" IsEnabled="False"
-                                 Style="{StaticResource SimplenessTextBox}">
+                        <TextBox Text="{Binding ConnectionProperties.PortText}">
                         </TextBox>
                     </StackPanel>
                 </StackPanel>

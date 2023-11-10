@@ -4,8 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:StandardTest.Views.MainPage"
+             xmlns:vm="clr-namespace:StandardTest.ViewModel"
              xmlns:controls="clr-namespace:StandardTest.Controls"
-             mc:Ignorable="d">
+             mc:Ignorable="d" d:DataContext="{d:DesignInstance {x:Type vm:MainViewModel}}">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -31,6 +32,9 @@
                     </Trigger>
                 </Style.Triggers>
             </Style>
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="14"></Setter>
+            </Style>
         </ResourceDictionary>
     </UserControl.Resources>
     <Grid ShowGridLines="True">
@@ -54,13 +58,15 @@
 
             <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center"
                         VerticalAlignment="Center">
-                <Label FontSize="14">当前料号 :</Label>
+                <Label>当前料号 :</Label>
                 <TextBox x:Name="NumberShow" Width="140" Height="30" IsEnabled="False"
-                         Style="{StaticResource SimplenessTextBox}">
+                         Style="{StaticResource SimplenessTextBox}"
+                         Text="{Binding ConnectionProperties.CurrentQccFile}">
                 </TextBox>
             </StackPanel>
             <!-- 设置QCC按钮 -->
-            <Button Grid.Row="0" Grid.Column="1" Style="{StaticResource ButtonTemplate}" Click="ChangeQcc">
+            <Button Grid.Row="0" Grid.Column="1" Style="{StaticResource ButtonTemplate}"
+                    Command="{Binding ChangeQccFileCommand}">
                 <Path Width="24" Height="24" Data="{StaticResource Edit}" Fill="Black" Stretch="Fill"></Path>
                 <controls:Poptip.Instance>
                     <controls:Poptip Style="{StaticResource PoptipStyle}" Content="更改QCC文件" PlacementType="BOTTOM"
@@ -70,12 +76,21 @@
             </Button>
             <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center"
                         VerticalAlignment="Center">
-                <Label FontSize="14">当前规格 :</Label>
-                <ComboBox x:Name="SpecificationSelection" Width="140" Height="30" 
+                <Label>当前规格 :</Label>
+                <ComboBox Width="140" Height="30" ItemsSource="{Binding ConnectionProperties.SpecificationNameList}"
                           HorizontalContentAlignment="Center"
                           VerticalContentAlignment="Center">
                 </ComboBox>
             </StackPanel>
+        </Grid>
+        <!-- 超时时间 -->
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="6*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0">超时时间 :</Label>
+            <Label Grid.Row="1">超时时间 :</Label>
         </Grid>
     </Grid>
 </UserControl>

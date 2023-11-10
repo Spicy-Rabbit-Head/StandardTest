@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:StandardTest.Views.MainPage"
              xmlns:wrt="clr-namespace:StandardTest.Views.WithRegardTo"
+             xmlns:dp="clr-namespace:StandardTest.Views.Disposition"
              xmlns:controls="clr-namespace:StandardTest.Controls"
              mc:Ignorable="d">
     <UserControl.Resources>
@@ -21,10 +22,11 @@
         <StackPanel Orientation="Horizontal" Height="30">
             <!-- 设置界面按钮 -->
             <controls:CustomerButton Style="{StaticResource CustomerButtonTemplate}"
-                                     ModalWindow="{x:Type wrt:WithRegardToWindow}">
+                                     ModalWindow="{x:Type dp:DispositionWindow}">
                 <Path Width="24" Height="24" Data="{StaticResource Disposition}" Fill="Black" Stretch="Fill"></Path>
                 <controls:Poptip.Instance>
-                    <controls:Poptip Style="{StaticResource PoptipStyle}" Content="配置" PlacementType="BOTTOM" HorizontalOffset="-45">
+                    <controls:Poptip Style="{StaticResource PoptipStyle}" Content="配置" PlacementType="BOTTOM"
+                                     HorizontalOffset="-45">
                     </controls:Poptip>
                 </controls:Poptip.Instance>
             </controls:CustomerButton>
@@ -33,7 +35,8 @@
                                      ModalWindow="{x:Type wrt:WithRegardToWindow}">
                 <Path Width="24" Height="24" Data="{StaticResource Help}" Fill="Black" Stretch="Fill"></Path>
                 <controls:Poptip.Instance>
-                    <controls:Poptip Style="{StaticResource PoptipStyle}" Content="关于" PlacementType="BOTTOM" HorizontalOffset="-45">
+                    <controls:Poptip Style="{StaticResource PoptipStyle}" Content="关于" PlacementType="BOTTOM"
+                                     HorizontalOffset="-45">
                     </controls:Poptip>
                 </controls:Poptip.Instance>
             </controls:CustomerButton>

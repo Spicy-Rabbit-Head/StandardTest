@@ -1,6 +1,10 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Threading;
 using System.Windows;
+using ModbusTcp;
+using StandardTest.Tools;
+using StandardTest.ViewModel;
 
 namespace StandardTest.Views.MainPage
 {
@@ -9,9 +13,20 @@ namespace StandardTest.Views.MainPage
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// 主视图模型
+        /// </summary>
+        private readonly MainViewModel mainViewModel = new();
+
+        /// <summary>
+        /// ModbusTcpClient
+        /// </summary>
+        private readonly ModbusTcpClient client = new();
+
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = mainViewModel;
         }
 
         /// <summary>
@@ -20,7 +35,6 @@ namespace StandardTest.Views.MainPage
         /// <param name="e">取消事件参数</param>
         protected override void OnClosing(CancelEventArgs e)
         {
-            Console.WriteLine("关闭窗口");
             var result = MessageBox.Show("确定是退出吗？", "询问", MessageBoxButton.YesNo, MessageBoxImage.Question);
             e.Cancel = result != MessageBoxResult.Yes;
         }
@@ -32,8 +46,25 @@ namespace StandardTest.Views.MainPage
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
-            Console.WriteLine("关闭程序");
+            Measuration.StopService();
             Application.Current.Shutdown();
+        }
+
+        /// <summary>
+        /// 主窗口加载完成后
+        /// </summary>
+        /// <param name="e">事件参数</param>
+        protected override void OnContentRendered(EventArgs e)
+        {
+            base.OnContentRendered(e);
+            var childThread = new Thread(() =>
+            {
+                client.Link();
+                if (Measuration.StartService(mainViewModel.ConnectionProperties.QccPath)) return;
+                MessageBox.Show("启动服务失败", "错误", MessageBoxButton.OK, MessageBoxImage.Error);
+            });
+
+            childThread.Start();
         }
     }
 }
