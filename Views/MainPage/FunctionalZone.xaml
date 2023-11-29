@@ -101,7 +101,9 @@
                     <Button
                         x:Name="OriginButton"
                         Grid.Row="0"
-                        Background="Goldenrod">
+                        Background="Goldenrod"
+                        Command="{Binding RestoringTheOriginCommand}"
+                        >
                         恢复原点
                     </Button>
                     <Button

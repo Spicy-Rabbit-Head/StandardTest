@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Windows;
 using Microsoft.Win32;
+using ModbusTcp;
 using StandardTest.Data;
 using StandardTest.Model;
 using StandardTest.Tools;
@@ -16,6 +17,11 @@ public class MainViewModel : ObservableObject
     /// 配置工具
     /// </summary>
     private readonly ConfigUtis configUtis = new();
+    
+    /// <summary>
+    /// ModbusTcpClient
+    /// </summary>
+    private readonly ModbusTcpClient client = new();
 
     /// <summary>
     /// 连接属性
@@ -37,6 +43,7 @@ public class MainViewModel : ObservableObject
     public MainViewModel()
     {
         ChangeQccFileCommand = new ObservableCommand<string>(ChangeQccFile);
+        RestoringTheOriginCommand = new ObservableCommand<object>(RestoringTheOriginMethod);
         InitializingServices();
     }
 
@@ -45,6 +52,7 @@ public class MainViewModel : ObservableObject
     /// </summary>
     private void InitializingServices()
     {
+        client.Link();
         var baseConfig = configUtis.GetValueBySection("Base");
         if (baseConfig == null)
         {
@@ -78,6 +86,8 @@ public class MainViewModel : ObservableObject
     }
 
     public ObservableCommand<string> ChangeQccFileCommand { get; set; }
+    
+
 
     /// <summary>
     /// 保存QCC文件路径
@@ -103,5 +113,16 @@ public class MainViewModel : ObservableObject
         });
 
         childThread.Start();
+    }
+    
+    public ObservableCommand<object> RestoringTheOriginCommand { get; set; }
+
+    /// <summary>
+    /// 恢复原点
+    /// </summary>
+    private void RestoringTheOriginMethod(object? obj)
+    {
+        Console.WriteLine("回原点 ");
+        Console.WriteLine(client.WriteSingleCoil(1, CoilStatus.ON));
     }
 }

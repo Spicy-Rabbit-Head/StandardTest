@@ -18,11 +18,6 @@ namespace StandardTest.Views.MainPage
         /// </summary>
         private readonly MainViewModel mainViewModel = new();
 
-        /// <summary>
-        /// ModbusTcpClient
-        /// </summary>
-        private readonly ModbusTcpClient client = new();
-
         public MainWindow()
         {
             InitializeComponent();
@@ -59,7 +54,6 @@ namespace StandardTest.Views.MainPage
             base.OnContentRendered(e);
             var childThread = new Thread(() =>
             {
-                client.Link();
                 if (Measuration.StartService(mainViewModel.ConnectionProperties.QccPath)) return;
                 MessageBox.Show("启动服务失败", "错误", MessageBoxButton.OK, MessageBoxImage.Error);
             });
